@@ -1,19 +1,15 @@
 import styled from 'styled-components';
 import { Colors } from './Colors';
 
-export type Styles = {
-    [ruleOrSelector: string]: string | number | Styles,
-}
-
-const boxShadow = (): Styles => {
-    return {
-        color: `${Colors.black}`
-    };
-};
 
 export const Wrapper = styled.div`
-    background: pink;
+    background-color: #021E39;
+    width: 100%;
+    height: 80px;
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    justify-content: center;
-    padding: 5px;
+
+    @media only screen and (max-width: 650px){
+        font-size: 15px;
+    }
 `;

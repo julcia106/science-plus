@@ -1,48 +1,118 @@
 import {FC} from 'react'; 
 import styled from 'styled-components';
+import {useState} from 'react';
 
 import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
 import { ExpandedMenu } from './ExpandedMenu';
  
-const Wrapper2 = styled(Wrapper)`
-    padding:10px;
+const Navbar = styled(Wrapper)`
 `;
 
-const InnerWrapper = styled.div`
-    width: 1200px;
-    background: ${Colors.white};
+const LeftSide = styled.div `
+    flex: 50%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    button {
+        display: none;
+        margin-left: 20px;
+    }
+
+    #hidden {
+        display: flex;
+    }
+
+    @media only screen and (max-width: 650px){
+        button{
+            display:flex;
+        }
+
+    }
 `;
 
-const RightIcons = styled.div``;
+const RightSide = styled.div `
+    flex: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 25px;
 
-const InputWrapper = styled.div``;
+    input {
+        width: 220px;
+        height: 30px;
+        border: none;
+        border-radius: 4px;
+        font-size: 20 px;
+        padding-left: 15px;
+        color: black;
+    }
 
-const CustomImg = styled.img``;
+    button {
+        height: 32px;
+        width: 70px;
+        font-size: 16px;
+        cursor: pointer;
 
-const CustomInput = styled.input`
-    backgroung: red;
+
+    }
+`;
+
+const Links = styled.div `
+
+    max-height: 80px;
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        margin-left: 15px;
+
+        @media only screen and (max-width: 900px){
+            font-size: 18px;
+        }
+        
+        @media only screen and (max-width: 750px){
+            font-size: 15px;
+        }
+
+        @media only screen and (max-width: 650px){
+            display: none;
+        }
+    }
+
+    #hidden {
+        position: absolute;
+        left: 0px;
+        top: 80px;
+        height: 230px;
+        width: 100%;
+        background-color: #021E39;
+        display: flex;
+        flex-direction: column;
+    }
+
 `;
 
 export const TopBar: FC = () => {
+
+    const[showLinks, setShowLinks] = useState(true);
     return (
-        <Wrapper2>
-            <InnerWrapper>
-                <CustomImg src= "./media/logo.png" />
-                <div>
-                    <ExpandedMenu />
-                </div>
-                <InputWrapper>
-                    <CustomInput type="text" />
-                    <input type="text" />
-                    <CustomImg src="./media/icons/search.png" alt="" title=""/>
-                </InputWrapper>
-                <RightIcons>
-                    <CustomImg src="./media/icons/house.png" />
-                    <CustomImg src="./media/icons/comments.png" />
-                    <CustomImg src="./media/icons/bell.png" />
-                </RightIcons>
-            </InnerWrapper>
-        </Wrapper2>
+        <Navbar>
+            <LeftSide>
+                <Links id={showLinks ? "hidden": ""}>
+                    <a href='/home'>Home</a>
+                    <a href='/feedback'>Feedback</a>
+                    <a href='/aboutus'>About Us</a>
+                    <a href='/contact'>Contact</a>
+                </Links>
+                <button>Open</button>
+            </LeftSide>
+            <RightSide>
+                <input type="text" placeholder="Search..." />
+                <button>Search</button>
+            </RightSide>
+        </Navbar>
     );
 };
