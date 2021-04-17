@@ -1,6 +1,6 @@
 import {FC} from 'react'; 
 import styled from 'styled-components';
-import {useState} from 'react';
+import SearchIcon from "@material-ui/icons/Search";
 
 import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
@@ -14,22 +14,6 @@ const LeftSide = styled.div `
     display: flex;
     justify-content: left;
     align-items: center;
-
-    button {
-        display: none;
-        margin-left: 20px;
-    }
-
-    #hidden {
-        display: flex;
-    }
-
-    @media only screen and (max-width: 650px){
-        button{
-            display:flex;
-        }
-
-    }
 `;
 
 const RightSide = styled.div `
@@ -54,8 +38,6 @@ const RightSide = styled.div `
         width: 70px;
         font-size: 16px;
         cursor: pointer;
-
-
     }
 `;
 
@@ -69,50 +51,24 @@ const Links = styled.div `
         font-size: 25px;
         margin-left: 15px;
 
-        @media only screen and (max-width: 900px){
-            font-size: 18px;
-        }
-        
-        @media only screen and (max-width: 750px){
-            font-size: 15px;
-        }
-
-        @media only screen and (max-width: 650px){
-            display: none;
-        }
     }
-
-    #hidden {
-        position: absolute;
-        left: 0px;
-        top: 80px;
-        height: 230px;
-        width: 100%;
-        background-color: #021E39;
-        display: flex;
-        flex-direction: column;
-    }
-
 `;
 
-export const TopBar: FC = () => {
-
-    const[showLinks, setShowLinks] = useState(true);
-    return (
-        <Navbar>
-            <LeftSide>
-                <Links id={showLinks ? "hidden": ""}>
-                    <a href='/home'>Home</a>
-                    <a href='/feedback'>Feedback</a>
-                    <a href='/aboutus'>About Us</a>
-                    <a href='/contact'>Contact</a>
-                </Links>
-                <button>Open</button>
-            </LeftSide>
-            <RightSide>
-                <input type="text" placeholder="Search..." />
-                <button>Search</button>
-            </RightSide>
-        </Navbar>
-    );
-};
+export const TopBar: FC = () => (
+    <Navbar>
+        <LeftSide>
+            <Links>
+                <a href='/home'>Home</a>
+                <a href='/feedback'>Feedback</a>
+                <a href='/aboutus'>About Us</a>
+                <a href='/contact'>Contact</a>
+            </Links>
+        </LeftSide>
+        <RightSide>
+            <input type="text" placeholder="Search..." />
+            <button>
+                <SearchIcon />
+            </button>
+        </RightSide>
+    </Navbar>
+);

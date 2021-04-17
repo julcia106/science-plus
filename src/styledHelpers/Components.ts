@@ -8,8 +8,4 @@ export const Wrapper = styled.div`
     height: 80px;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
-
-    @media only screen and (max-width: 650px){
-        font-size: 15px;
-    }
 `;
