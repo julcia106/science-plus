@@ -23,6 +23,7 @@ const MainPage: FC = () => {
     <Body>
       <App>
         <TopBar />
+        <LeftMenu />
       </App>
     </Body>
   );
