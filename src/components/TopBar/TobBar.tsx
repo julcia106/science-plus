@@ -5,6 +5,7 @@ import Dropdown from 'react-dropdown';
 
 import { Wrapper } from '../../styledHelpers/Components';
 import { Colors } from '../../styledHelpers/Colors';
+import {media} from '../../styledHelpers/BreakPoints'
 //import { ExpandedMenu } from './ExpandedMenu'; tymczasowo
  
 // A new component based on Wrapper, but with some override styles
@@ -13,6 +14,15 @@ import { Colors } from '../../styledHelpers/Colors';
 const Navbar = styled(Wrapper)`
 `;
 
+// użycie breakpoints
+// const InnerWrapper = styled.div`
+//     width: 1200px;
+//     background: ${Colors.white};
+//     ${media.desktop`
+//         background: ${Colors.black};
+//     `}
+// `;
+
 const DropDownMenu = styled.div`
 
     padding-left: 80px;
@@ -20,7 +30,9 @@ const DropDownMenu = styled.div`
     select {
         width: 200px;
         border-radius: 8px;
+        border-color: #dddddd;
         height: 20px;
+        color: grey;
     }
 `;
 
@@ -53,22 +65,22 @@ const Center = styled.div`
     input {
         width: 350px;
         height: 20px;
-        border: 1px solid white;
         border-radius: 8px;
+        border-color: #dddddd;
         font-size: 20 px;
         padding-left: 15px;
-        background: #021E39;
         color: white;
     }
 
     button {
-        height: 27px;
-        width: 70px;
-        font-size: 16px;
+
+        background: white;
+        color: grey;
+        border:none;
         cursor: pointer;
-        border-radius: 8px;
     }
 `;
+
 const RightSide = styled.div `
 
     flex: 50%;

@@ -3,21 +3,23 @@ import styled from 'styled-components';
 import {SideBarData} from './SideBarData';
 
 
-const App = styled.div`
-    width: 100vw;
-    height: 100vh;
-`;
+// const App = styled.div`
+//     width: 100px;
+//     height: 100px;
+//     background-color: pink;
+// `;
 
-const Body = styled.div`
-    margin: 0;
-    padding: 0;
-`;
+// const Body = styled.div`
+//     margin: 0;
+//     padding: 0;
+    
+// `;
 
 const SideBar = styled.div`
-   height: 100%;
+   height: 600px;
    width: 250px;
-   background-color: #e6f2ff;
-   
+   background-color: red;
+   float: left;
 
    .SidebarList {
        height: auto%;
@@ -26,12 +28,11 @@ const SideBar = styled.div`
 
        .row {
            width: 100%;
-           height: 60px;
+           height: 50px;
            list-style-type: none;
            margin: 0%;
            display: flex;
            flex-direction: row;
-           color: white;
            justify-content: center;
            align-items: center;
            font-family: 'Trebuchet MS';
@@ -51,30 +52,44 @@ const SideBar = styled.div`
    }
 `;
 
+const ProfileSection = styled.div`
+   height: 200px;
+//    margin: 20px 20px 20px 20px; 
+   background-color: white;
+
+    #logoIcon {
+    height: 39px;
+    width: 34px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px; 
+   }
+`;
+
 
 export const LeftMenu: FC = () => {
     return(
-        <Body>
-            <App>
-                <SideBar>
-                    <ul className = "SidebarList">
-                        {SideBarData.map((val, key)=> {
-                            return (
-                            <li 
-                                key={key} 
-                                className= "row"
-                                onClick={() => {
-                                    window.location.pathname = val.link;
-                                }}
-                            >
-                                <div id="icon">{val.icon}</div>
-                                <div id="title">{val.title}</div>
-                            </li>
-                            );
-                        })}
-                    </ul>
-                </SideBar>
-            </App>
-        </Body>
+        <SideBar>
+            <ProfileSection>
+                <img id="logoIcon" src= "./media/logo.png" />
+            </ProfileSection>
+            <ul className = "SidebarList">
+                {SideBarData.map((val, key)=> {
+                    return (
+                    <li 
+                        key={key} 
+                        className= "row"
+                        onClick={() => {
+                            window.location.pathname = val.link;
+                        }}
+                    >
+                        <div id="icon">{val.icon}</div>
+                        <div id="title">{val.title}</div>
+                    </li>
+                    );
+                })}
+            </ul>
+        </SideBar>
     );
 };

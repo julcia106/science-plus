@@ -3,10 +3,14 @@ import styled from 'styled-components';
 
 import { TopBar } from '../TopBar/TobBar';
 import { LeftMenu } from '../LeftMenu/LeftMenu';
+import {TopCenter} from '../TopCenter/TopCenter';
+import {Center} from '../Center/Center';
+import {BottomCenter} from '../BottomCenter/BottomCenter';
 
 const App = styled.div`
     width: 100vw;
     height: 100vh;
+    background-color: pink;
 `;
 
 // Taką składnię nazywamy JSX i jest to rozszerzenie składni JavaScriptu
@@ -24,6 +28,10 @@ const MainPage: FC = () => {
       <App>
         <TopBar />
         <LeftMenu />
+        <TopCenter />
+        <Center />
+        <BottomCenter />
+        
       </App>
     </Body>
   );
